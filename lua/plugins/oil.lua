@@ -1,0 +1,17 @@
+return {
+	"stevearc/oil.nvim",
+	---@module 'oil'
+	---@type oil.SetupOpts
+	opts = {
+		columns = {
+			"icon",
+			"size",
+		},
+	},
+	dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+	lazy = false,
+
+	config = function(_, opts)
+		require("oil").setup(opts)
+	end,
+}
