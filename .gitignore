@@ -1,0 +1,14 @@
+lazy-lock.json
+
+secrets.lua
+.env
+.local.lua
+
+*.swp
+*.swo
+*~
+.DS_Store
+
+*.log
+.luarc.json
+.repro.lua
