@@ -16,3 +16,12 @@ vim.keymap.set("x", "<BS>", function()
 end, { desc = "Treesitter: Contrair Seleção" })
 
 vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "Salvar arquivo" })
+
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Salvar arquivo" })
+
+-- Navegar entre as abas (buffers) mantendo o Tab livre para o Blink
+vim.keymap.set("n", "<C-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Próxima Aba" })
+vim.keymap.set("n", "<C-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Aba Anterior" })
+
+-- Fechar a aba atual
+vim.keymap.set("n", "<leader>c", "<cmd>bdelete<cr>", { desc = "Fechar Aba Atual" })

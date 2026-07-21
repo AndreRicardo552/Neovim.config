@@ -14,6 +14,7 @@ return {
 			"diff",
 			"html",
 			"javascript",
+			"cmake",
 			"jsdoc",
 			"json",
 			"lua",
