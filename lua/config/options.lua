@@ -13,8 +13,20 @@ vim.opt.smarttab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 vim.opt.breakindent = true
 vim.opt.signcolumn = "yes"
+vim.opt.laststatus = 3
+vim.opt.pumblend = 10
+vim.opt.winblend = 10
+vim.opt.fillchars = {
+	eob = " ",
+	fold = " ",
+	foldopen = "",
+	foldsep = " ",
+	foldclose = "",
+}
+vim.opt.splitkeep = "screen"
 
 -- Configuração Global (Bom para C, C#, Markdown)
 vim.opt.expandtab = false -- Transforma Tab em espaços

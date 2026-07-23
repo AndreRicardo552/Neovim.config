@@ -20,10 +20,7 @@ return {
 				},
 			},
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			{
-				"j-hui/fidget.nvim",
-				opts = {},
-			},
+			"j-hui/fidget.nvim",
 		},
 		config = function()
 			-- 1. Configuração do LspAttach (Mapeamentos e Autocomandos)

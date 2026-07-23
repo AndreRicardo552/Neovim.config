@@ -5,7 +5,18 @@ return {
 	config = function()
 		require("kanagawa").setup({
 			compile = true,
-			transparent = true,
+			transparent = false,
+			dimInactive = true,
+			theme = "wave",
+			background = {
+				dark = "wave",
+				light = "lotus",
+			},
+			themes = {
+				wave = {
+					special = "#7fbbb3",
+				},
+			},
 
 			overrides = function(colors)
 				return {

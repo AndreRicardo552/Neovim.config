@@ -5,7 +5,7 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"MunifTanjim/nui.nvim",
-			"nvim-mini/mini.icons", -- optional, but recommended
+			"nvim-mini/mini.icons",
 		},
 		lazy = false, -- neo-tree will lazily load itself
 
@@ -20,18 +20,29 @@ return {
 			enable_git_status = true,
 			enable_diagnostics = true,
 			sort_case_insensitive = true,
+			use_libuv_file_watcher = true,
 
 			default_component_configs = {
+				name = {
+					use_git_status_colors = true,
+				},
 				indent = {
 					with_expanders = true,
 					expander_collapsed = "",
 					expander_expanded = "",
 					expander_highlight = "NeoTreeExpander",
 				},
+				icon = {
+					folder_closed = "󰉋",
+					folder_open = "󰝰",
+					folder_empty = "󰉖",
+					default = "",
+				},
 			},
 
 			window = {
 				width = 30,
+				position = "left",
 				mappings = {
 					["l"] = "open",
 					["h"] = "close_node",
@@ -49,16 +60,22 @@ return {
 					hide_dotfiles = false,
 					hide_gitignored = true,
 				},
+				bind_to_cwd = false,
 				follow_current_file = {
 					enabled = true,
 					leave_dirs_open = false,
 				},
 				group_empty_dirs = true,
+				window = {
+					mappings = {
+						["<space>"] = "toggle_node",
+					},
+				},
 				hijack_netrw_behavior = "open_current",
 			},
-			config = function(_, opts)
-				require("neo-tree").setup(opts)
-			end,
 		},
+		config = function(_, opts)
+			require("neo-tree").setup(opts)
+		end,
 	},
 }
