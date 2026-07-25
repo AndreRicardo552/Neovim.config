@@ -25,3 +25,5 @@ vim.keymap.set("n", "<C-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Aba Anter
 
 -- Fechar a aba atual
 vim.keymap.set("n", "<leader>c", "<cmd>bdelete<cr>", { desc = "Fechar Aba Atual" })
+
+vim.keymap.del("n", "<leader>c")

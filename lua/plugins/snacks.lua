@@ -10,7 +10,26 @@ return {
 		bigfile = { enabled = true },
 		dashboard = { enabled = true },
 		explorer = { enabled = false },
-		indent = { enabled = true },
+		indent = {
+			enabled = true,
+			only_scope = true,
+			exclude = {
+				filetypes = {
+					"neo-tree",
+					"neo-tree-popup",
+					"oil",
+					"notify",
+					"toggleterm",
+					"lazy",
+					"mason",
+				},
+				buftypes = {
+					"nofile",
+					"terminal",
+					"prompt",
+				},
+			},
+		},
 		input = { enabled = true },
 		picker = { enabled = true },
 		notifier = { enabled = true, timeout = 3000 },
@@ -61,7 +80,7 @@ return {
 
 		-- 🪟 Atalho útil para fechar abas com segurança usando o buffer core do Snacks
 		{
-			"<leader>bd",
+			"<leader>x",
 			function()
 				Snacks.bufdelete()
 			end,

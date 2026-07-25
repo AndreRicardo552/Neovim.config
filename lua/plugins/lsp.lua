@@ -93,6 +93,10 @@ return {
 			-- 2. Configuração do Mason Tool Installer
 			require("mason-tool-installer").setup({
 				ensure_installed = {
+					"cmakelint",
+					"cmakelang",
+					"netcoredbg",
+					"bash-debug-adapter",
 					"angular-language-server",
 					"bash-language-server",
 					"clangd",
@@ -118,7 +122,7 @@ return {
 					"stylua",
 					"typos-lsp",
 				},
-				auto_update = false,
+				auto_update = true,
 				run_on_start = true,
 				start_delay = 3000,
 			})
