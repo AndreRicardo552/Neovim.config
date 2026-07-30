@@ -8,6 +8,7 @@ return {
 			formatters_by_ft = {
 				-- 1. Ecossistema .NET / C#
 				cs = { "csharpier" }, -- Arquivos de código C# (.cs)
+				fsharp = { "fantomas" },
 				xml = { "xmlformatter" }, -- Muito útil para arquivos .csproj ou .axaml
 
 				-- 2. Configurações e Scripts do Editor
