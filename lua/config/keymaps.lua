@@ -27,3 +27,13 @@ vim.keymap.set("n", "<C-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Aba Anter
 vim.keymap.set("n", "<leader>c", "<cmd>bdelete<cr>", { desc = "Fechar Aba Atual" })
 
 vim.keymap.del("n", "<leader>c")
+
+-- Abre ou fecha o terminal a partir do Modo Normal
+vim.keymap.set("n", "<leader>/", function()
+	Snacks.terminal.toggle()
+end, { desc = "Toggle Terminal" })
+
+-- Fecha o terminal a partir do Modo Terminal (enquanto você digita nele)
+vim.keymap.set("t", "<leader>/", function()
+	Snacks.terminal.toggle()
+end, { desc = "Toggle Terminal" })

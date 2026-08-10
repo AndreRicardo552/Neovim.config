@@ -38,6 +38,15 @@ return {
 		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
 		words = { enabled = false },
+		terminal = {
+			enabled = true,
+			shell = "bash",
+			win = {
+				style = "terminal",
+				position = "bottom",
+				height = 0.4,
+			},
+		},
 	},
 
 	keys = {
