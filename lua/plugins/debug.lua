@@ -5,6 +5,7 @@ return {
 			"rcarriga/nvim-dap-ui",
 			"nvim-neotest/nvim-nio",
 			"jay-babu/mason-nvim-dap.nvim", -- Gerencia o download dos adaptadores via Mason
+			"mfussenegger/nvim-dap-python",
 		},
 		config = function()
 			local dap = require("dap")

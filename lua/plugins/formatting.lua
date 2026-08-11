@@ -28,6 +28,9 @@ return {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 
+				-- python
+				python = {},
+
 				-- 4. Formatação de fallback global
 				-- Aplica em qualquer tipo de arquivo não listado acima para limpar o código
 				["_"] = { "trim_whitespace", "trim_newlines" },
