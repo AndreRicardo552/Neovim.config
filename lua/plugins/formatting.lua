@@ -17,11 +17,13 @@ return {
 
 				-- 3. Ecossistema Web & Frontend (Se precisar mexer em APIs/Web)
 				-- A flag 'stop_after_first = true' testa o mais rápido instalado e para nele
-				javascript = { "prettier", "prettierd", stop_after_first = true },
-				typescript = { "prettier", "prettierd", stop_after_first = true },
-				json = { "prettier", "prettierd", stop_after_first = true },
-				html = { "prettier", "prettierd", stop_after_first = true },
-				css = { "prettier", "prettierd", stop_after_first = true },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				javascriptreact = { "prettier" },
+				typescriptreact = { "prettier" },
+				html = { "prettier" },
+				css = { "prettier" },
+				json = { "prettier" },
 
 				-- C e C++
 				cmake = { "cmake_format" },
