@@ -26,14 +26,19 @@ vim.keymap.set("n", "<C-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Aba Anter
 -- Fechar a aba atual
 vim.keymap.set("n", "<leader>c", "<cmd>bdelete<cr>", { desc = "Fechar Aba Atual" })
 
-vim.keymap.del("n", "<leader>c")
-
--- Abre ou fecha o terminal a partir do Modo Normal
+-- Toggle seguro para o Terminal (Modo Normal e Modo Terminal sem sequestrar o espaço):
 vim.keymap.set("n", "<leader>/", function()
 	Snacks.terminal.toggle()
 end, { desc = "Toggle Terminal" })
 
--- Fecha o terminal a partir do Modo Terminal (enquanto você digita nele)
-vim.keymap.set("t", "<leader>/", function()
+vim.keymap.set("t", "<C-/>", function()
 	Snacks.terminal.toggle()
 end, { desc = "Toggle Terminal" })
+
+-- Elimina a disputa do prefixo gr no Neovim 0.12+
+pcall(vim.keymap.del, "n", "gra")
+pcall(vim.keymap.del, "n", "gri")
+pcall(vim.keymap.del, "n", "grr")
+pcall(vim.keymap.del, "n", "grt")
+pcall(vim.keymap.del, "n", "grx")
+pcall(vim.keymap.del, "n", "grn")

@@ -58,7 +58,8 @@ return {
 					if client and client:supports_method("textDocument/inlayHint", ev.buf) then
 						opts.desc = "[T]oggle Inlay [H]ints"
 						vim.keymap.set("n", "<leader>th", function()
-							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf }))
+							local is_enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf })
+							vim.lsp.inlay_hint.enable(not is_enabled, { bufnr = ev.buf })
 						end, opts)
 					end
 				end,
@@ -116,7 +117,6 @@ return {
 					"luacheck",
 					"markdownlint",
 					"prettier",
-					"prettierd",
 					"shellcheck",
 					"shfmt",
 					"stylua",

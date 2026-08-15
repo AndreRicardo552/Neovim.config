@@ -5,7 +5,6 @@ return {
 			"rcarriga/nvim-dap-ui",
 			"nvim-neotest/nvim-nio",
 			"jay-babu/mason-nvim-dap.nvim", -- Gerencia o download dos adaptadores via Mason
-			"mfussenegger/nvim-dap-python",
 		},
 		config = function()
 			local dap = require("dap")
@@ -23,10 +22,7 @@ return {
 			dap.defaults.fallback.terminal_win_cmd = "belowright 12new"
 
 			-- Automacao da interface visual DAP UI
-			dap.listeners.before.attach.dapui_config = function()
-				dapui.open()
-			end
-			dap.listeners.before.launch.dapui_config = function()
+			dap.listeners.after.event_initialized.dapui_config = function()
 				dapui.open()
 			end
 			dap.listeners.before.event_terminated.dapui_config = function()
@@ -130,7 +126,7 @@ return {
 			{ "<leader>cb", "<cmd>CMakeBuild<cr>", desc = "CMake Build" },
 			{ "<leader>cr", "<cmd>CMakeRun<cr>", desc = "CMake Run" },
 			{ "<leader>cd", "<cmd>CMakeDebug<cr>", desc = "CMake Debug" },
-			{ "<leader>cs", "<cmd>CMakeSelectTarget<cr>", desc = "CMake Select Target" },
+			{ "<leader>ct", "<cmd>CMakeSelectTarget<cr>", desc = "CMake Select Target" },
 		},
 	},
 	{
@@ -157,9 +153,8 @@ return {
 
 			require("neotest").setup({
 				adapters = {
-					-- Load with default config
 					require("neotest-ctest").setup({}),
-					require("neotest-vstest"),
+					require("neotest-vstest"), -- Tabela bruta, sem parênteses de invocação
 				},
 			})
 		end,

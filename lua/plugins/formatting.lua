@@ -61,15 +61,11 @@ return {
 				markdown = { "markdownlint" },
 				sh = { "shellcheck" },
 				bash = { "shellcheck" },
-
-				-- Linters globais/genéricos
-				-- O "*" aplica o linter em qualquer tipo de arquivo (global)
-				["*"] = { "codespell" },
 			}
 
 			-- Create an autocommand to trigger linting automatically
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
 				group = lint_augroup,
 				callback = function()
 					-- Only run linter if nvim-lint is available

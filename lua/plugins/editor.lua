@@ -68,7 +68,7 @@ return {
 				group_empty_dirs = true,
 				window = {
 					mappings = {
-						["<space>"] = "toggle_node",
+						["o"] = "toggle_node",
 					},
 				},
 				hijack_netrw_behavior = "open_current",
@@ -204,7 +204,7 @@ return {
 
 			-- 🪟 Atalho útil para fechar abas com segurança usando o buffer core do Snacks
 			{
-				"<leader>x",
+				"<leader>X",
 				function()
 					Snacks.bufdelete()
 				end,
