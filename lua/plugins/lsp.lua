@@ -173,15 +173,36 @@ return {
 	},
 	{
 		"seblj/roslyn.nvim",
-		ft = { "cs", "razor" }, -- Carrega o plugin apenas ao abrir arquivos C# ou Razor
+		ft = { "cs", "razor" },
 		opts = function()
-			-- Se você gerou o default_capabilities no outro arquivo,
-			-- você pode chamar vim.lsp.protocol.make_client_capabilities() aqui também
+			-- 1. Cria a base com suporte obrigatório a monitoramento de arquivos no disco
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities.workspace = capabilities.workspace or {}
+			capabilities.workspace.didChangeWatchedFiles = {
+				dynamicRegistration = true,
+			}
+
+			-- 2. Funde as capacidades com o motor do Blink Completion
+			capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+
 			return {
-				exe = {
-					"roslyn-language-server", -- Este é o nome do binário instalado pelo Mason
+				config = {
+					capabilities = capabilities,
+					settings = {
+						["csharp|inlay_hints"] = {
+							csharp_enable_inlay_hints_for_implicit_object_creation = true,
+							csharp_enable_inlay_hints_for_implicit_variable_types = true,
+							csharp_enable_inlay_hints_for_lambda_parameter_types = true,
+							csharp_enable_inlay_hints_for_types = true,
+						},
+						["csharp|symbol_search"] = {
+							dotnet_search_reference_assemblies = true,
+						},
+					},
 				},
-				-- Você pode injetar o mason_registry se necessário, mas o executável no PATH (que o Mason faz) costuma bastar.
+				exe = {
+					"roslyn-language-server",
+				},
 			}
 		end,
 	},
