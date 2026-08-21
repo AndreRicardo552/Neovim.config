@@ -23,9 +23,6 @@ vim.keymap.set("n", "<leader>q", "<cmd>q<CR>", { desc = "Fechar" })
 vim.keymap.set("n", "<C-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Próxima Aba" })
 vim.keymap.set("n", "<C-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Aba Anterior" })
 
--- Fechar a aba atual
-vim.keymap.set("n", "<leader>c", "<cmd>bdelete<cr>", { desc = "Fechar Aba Atual" })
-
 -- Toggle seguro para o Terminal (Modo Normal e Modo Terminal sem sequestrar o espaço):
 vim.keymap.set("n", "<leader>/", function()
 	Snacks.terminal.toggle()

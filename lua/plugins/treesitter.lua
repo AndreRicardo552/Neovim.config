@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		branch = "main",
 		build = ":TSUpdate",
 		event = { "BufReadPre", "BufNewFile" },
 		cmd = { "TSUpdate", "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
@@ -8,8 +9,6 @@ return {
 		opts = {
 			sync_install = false,
 			auto_install = true,
-			highlight = { enable = true },
-			indent = { enable = true },
 			ensure_installed = {
 				"angular",
 				"bash",
@@ -17,6 +16,7 @@ return {
 				"cpp",
 				"c_sharp",
 				"css",
+				"scss",
 				"csv",
 				"fsharp",
 				"diff",
@@ -28,6 +28,7 @@ return {
 				"json",
 				"lua",
 				"luadoc",
+				"latex",
 				"luap",
 				"markdown",
 				"markdown_inline",

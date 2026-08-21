@@ -105,7 +105,6 @@ return {
 					"html-lsp",
 					"lua-language-server",
 					"neocmakelsp",
-					"roslyn-language-server",
 					"typescript-language-server",
 					"vim-language-server",
 					"yaml-language-server",
@@ -128,8 +127,11 @@ return {
 			})
 
 			-- 3. Lista de servidores e capacidades (Capabilities)
-			-- Exemplo usando a base do Neovim (Substitua pela chamada do blink.cmp ou cmp, se aplicável)
 			local original_capabilities = vim.lsp.protocol.make_client_capabilities()
+			original_capabilities.workspace = original_capabilities.workspace or {}
+			original_capabilities.workspace.didChangeWatchedFiles = {
+				dynamicRegistration = true,
+			}
 			local default_capabilities = require("blink.cmp").get_lsp_capabilities(original_capabilities)
 
 			local servers = {
@@ -175,19 +177,9 @@ return {
 		"seblj/roslyn.nvim",
 		ft = { "cs", "razor" },
 		opts = function()
-			-- 1. Cria a base com suporte obrigatório a monitoramento de arquivos no disco
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities.workspace = capabilities.workspace or {}
-			capabilities.workspace.didChangeWatchedFiles = {
-				dynamicRegistration = true,
-			}
-
-			-- 2. Funde as capacidades com o motor do Blink Completion
-			capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
-
 			return {
 				config = {
-					capabilities = capabilities,
+					capabilities = default_capabilities,
 					settings = {
 						["csharp|inlay_hints"] = {
 							csharp_enable_inlay_hints_for_implicit_object_creation = true,
@@ -203,6 +195,7 @@ return {
 				exe = {
 					"roslyn-language-server",
 				},
+				broad_search = true,
 			}
 		end,
 	},
